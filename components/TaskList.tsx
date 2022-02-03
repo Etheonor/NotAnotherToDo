@@ -1,7 +1,13 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
 /* eslint-disable @typescript-eslint/no-unsafe-member-access */
 /* eslint-disable @typescript-eslint/no-unsafe-argument */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { DragDropContext, Draggable, Droppable } from 'react-beautiful-dnd';
+import {
+  DragDropContext,
+  Draggable,
+  Droppable,
+  DroppableProvided,
+} from 'react-beautiful-dnd';
 import React, { useEffect, useState } from 'react';
 
 import { FiPlusCircle } from 'react-icons/fi';
@@ -56,13 +62,7 @@ const TaskList = (props: {
       </div>
       <DragDropContext onDragEnd={handleOnDragEnd}>
         <Droppable droppableId="tasks">
-          {(provided: {
-            placeholder: JSX.Element;
-            droppableProps: JSX.IntrinsicAttributes &
-              React.ClassAttributes<HTMLUListElement> &
-              React.HTMLAttributes<HTMLUListElement>;
-            innerRef: React.LegacyRef<HTMLUListElement> | undefined;
-          }) => (
+          {(provided: DroppableProvided) => (
             <ul
               className="flex flex-col"
               {...provided.droppableProps}
@@ -70,15 +70,7 @@ const TaskList = (props: {
               {props.list.map(({ id, name }, index) => {
                 return (
                   <Draggable key={id} draggableId={id} index={index}>
-                    {(provided: {
-                      innerRef: React.LegacyRef<HTMLLIElement> | undefined;
-                      draggableProps: JSX.IntrinsicAttributes &
-                        React.ClassAttributes<HTMLLIElement> &
-                        React.LiHTMLAttributes<HTMLLIElement>;
-                      dragHandleProps: JSX.IntrinsicAttributes &
-                        React.ClassAttributes<HTMLLIElement> &
-                        React.LiHTMLAttributes<HTMLLIElement>;
-                    }) => (
+                    {(provided) => (
                       <li
                         ref={provided.innerRef}
                         {...provided.draggableProps}
