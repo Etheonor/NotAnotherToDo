@@ -1,0 +1,25 @@
+name: NotAnotherToDo-CI
+# https://docs.github.com/en/actions/reference/events-that-trigger-workflows
+on: [deployment_status]
+jobs:
+  e2e:
+    # only runs this job on successful deploy
+    if: github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: pnpm/action-setup@v2.0.1
+        with:
+          version: 6.0.2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: '14.x'
+      - name: Install dependencies
+        run: pnpm install
+      - name: Install Playwright
+        run: pnpx playwright install --with-deps
+      - name: Run Playwright tests
+        run: pnpm run test
+        env:
+          # This might depend on your test-runner/language binding
+          PLAYWRIGHT_TEST_BASE_URL: ${{ github.event.deployment_status.target_url }}
