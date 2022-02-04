@@ -4,7 +4,7 @@
  */
 
 export interface paths {
-  "/": {
+  '/': {
     get: {
       responses: {
         /** OK */
@@ -12,34 +12,34 @@ export interface paths {
       };
     };
   };
-  "/admin_list": {
+  '/admin_list': {
     get: {
       parameters: {
         query: {
-          id?: parameters["rowFilter.admin_list.id"];
-          isadmin?: parameters["rowFilter.admin_list.isadmin"];
+          id?: parameters['rowFilter.admin_list.id'];
+          isadmin?: parameters['rowFilter.admin_list.isadmin'];
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
           /** Ordering */
-          order?: parameters["order"];
+          order?: parameters['order'];
           /** Limiting and Pagination */
-          offset?: parameters["offset"];
+          offset?: parameters['offset'];
           /** Limiting and Pagination */
-          limit?: parameters["limit"];
+          limit?: parameters['limit'];
         };
         header: {
           /** Limiting and Pagination */
-          Range?: parameters["range"];
+          Range?: parameters['range'];
           /** Limiting and Pagination */
-          "Range-Unit"?: parameters["rangeUnit"];
+          'Range-Unit'?: parameters['rangeUnit'];
           /** Preference */
-          Prefer?: parameters["preferCount"];
+          Prefer?: parameters['preferCount'];
         };
       };
       responses: {
         /** OK */
         200: {
-          schema: definitions["admin_list"][];
+          schema: definitions['admin_list'][];
         };
         /** Partial Content */
         206: unknown;
@@ -49,15 +49,15 @@ export interface paths {
       parameters: {
         body: {
           /** admin_list */
-          admin_list?: definitions["admin_list"];
+          admin_list?: definitions['admin_list'];
         };
         query: {
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -68,12 +68,12 @@ export interface paths {
     delete: {
       parameters: {
         query: {
-          id?: parameters["rowFilter.admin_list.id"];
-          isadmin?: parameters["rowFilter.admin_list.isadmin"];
+          id?: parameters['rowFilter.admin_list.id'];
+          isadmin?: parameters['rowFilter.admin_list.isadmin'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -84,16 +84,16 @@ export interface paths {
     patch: {
       parameters: {
         query: {
-          id?: parameters["rowFilter.admin_list.id"];
-          isadmin?: parameters["rowFilter.admin_list.isadmin"];
+          id?: parameters['rowFilter.admin_list.id'];
+          isadmin?: parameters['rowFilter.admin_list.isadmin'];
         };
         body: {
           /** admin_list */
-          admin_list?: definitions["admin_list"];
+          admin_list?: definitions['admin_list'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -102,38 +102,37 @@ export interface paths {
       };
     };
   };
-  "/profiles": {
+  '/profiles': {
     get: {
       parameters: {
         query: {
-          id?: parameters["rowFilter.profiles.id"];
-          updated_at?: parameters["rowFilter.profiles.updated_at"];
-          username?: parameters["rowFilter.profiles.username"];
-          avatar_url?: parameters["rowFilter.profiles.avatar_url"];
-          github_profile?: parameters["rowFilter.profiles.github_profile"];
-          projects?: parameters["rowFilter.profiles.projects"];
+          id?: parameters['rowFilter.profiles.id'];
+          updated_at?: parameters['rowFilter.profiles.updated_at'];
+          username?: parameters['rowFilter.profiles.username'];
+          github_profile?: parameters['rowFilter.profiles.github_profile'];
+          projects?: parameters['rowFilter.profiles.projects'];
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
           /** Ordering */
-          order?: parameters["order"];
+          order?: parameters['order'];
           /** Limiting and Pagination */
-          offset?: parameters["offset"];
+          offset?: parameters['offset'];
           /** Limiting and Pagination */
-          limit?: parameters["limit"];
+          limit?: parameters['limit'];
         };
         header: {
           /** Limiting and Pagination */
-          Range?: parameters["range"];
+          Range?: parameters['range'];
           /** Limiting and Pagination */
-          "Range-Unit"?: parameters["rangeUnit"];
+          'Range-Unit'?: parameters['rangeUnit'];
           /** Preference */
-          Prefer?: parameters["preferCount"];
+          Prefer?: parameters['preferCount'];
         };
       };
       responses: {
         /** OK */
         200: {
-          schema: definitions["profiles"][];
+          schema: definitions['profiles'][];
         };
         /** Partial Content */
         206: unknown;
@@ -143,15 +142,15 @@ export interface paths {
       parameters: {
         body: {
           /** profiles */
-          profiles?: definitions["profiles"];
+          profiles?: definitions['profiles'];
         };
         query: {
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -162,16 +161,15 @@ export interface paths {
     delete: {
       parameters: {
         query: {
-          id?: parameters["rowFilter.profiles.id"];
-          updated_at?: parameters["rowFilter.profiles.updated_at"];
-          username?: parameters["rowFilter.profiles.username"];
-          avatar_url?: parameters["rowFilter.profiles.avatar_url"];
-          github_profile?: parameters["rowFilter.profiles.github_profile"];
-          projects?: parameters["rowFilter.profiles.projects"];
+          id?: parameters['rowFilter.profiles.id'];
+          updated_at?: parameters['rowFilter.profiles.updated_at'];
+          username?: parameters['rowFilter.profiles.username'];
+          github_profile?: parameters['rowFilter.profiles.github_profile'];
+          projects?: parameters['rowFilter.profiles.projects'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -182,20 +180,19 @@ export interface paths {
     patch: {
       parameters: {
         query: {
-          id?: parameters["rowFilter.profiles.id"];
-          updated_at?: parameters["rowFilter.profiles.updated_at"];
-          username?: parameters["rowFilter.profiles.username"];
-          avatar_url?: parameters["rowFilter.profiles.avatar_url"];
-          github_profile?: parameters["rowFilter.profiles.github_profile"];
-          projects?: parameters["rowFilter.profiles.projects"];
+          id?: parameters['rowFilter.profiles.id'];
+          updated_at?: parameters['rowFilter.profiles.updated_at'];
+          username?: parameters['rowFilter.profiles.username'];
+          github_profile?: parameters['rowFilter.profiles.github_profile'];
+          projects?: parameters['rowFilter.profiles.projects'];
         };
         body: {
           /** profiles */
-          profiles?: definitions["profiles"];
+          profiles?: definitions['profiles'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -204,41 +201,43 @@ export interface paths {
       };
     };
   };
-  "/projects": {
+  '/projects': {
     get: {
       parameters: {
         query: {
-          id?: parameters["rowFilter.projects.id"];
-          name?: parameters["rowFilter.projects.name"];
-          description?: parameters["rowFilter.projects.description"];
-          created_at?: parameters["rowFilter.projects.created_at"];
-          updated_at?: parameters["rowFilter.projects.updated_at"];
-          backlog?: parameters["rowFilter.projects.backlog"];
-          users?: parameters["rowFilter.projects.users"];
-          tags?: parameters["rowFilter.projects.tags"];
-          tutorials?: parameters["rowFilter.projects.tutorials"];
+          id?: parameters['rowFilter.projects.id'];
+          name?: parameters['rowFilter.projects.name'];
+          description?: parameters['rowFilter.projects.description'];
+          created_at?: parameters['rowFilter.projects.created_at'];
+          updated_at?: parameters['rowFilter.projects.updated_at'];
+          backlog?: parameters['rowFilter.projects.backlog'];
+          users?: parameters['rowFilter.projects.users'];
+          tags?: parameters['rowFilter.projects.tags'];
+          tutorials?: parameters['rowFilter.projects.tutorials'];
+          creator?: parameters['rowFilter.projects.creator'];
+          slug?: parameters['rowFilter.projects.slug'];
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
           /** Ordering */
-          order?: parameters["order"];
+          order?: parameters['order'];
           /** Limiting and Pagination */
-          offset?: parameters["offset"];
+          offset?: parameters['offset'];
           /** Limiting and Pagination */
-          limit?: parameters["limit"];
+          limit?: parameters['limit'];
         };
         header: {
           /** Limiting and Pagination */
-          Range?: parameters["range"];
+          Range?: parameters['range'];
           /** Limiting and Pagination */
-          "Range-Unit"?: parameters["rangeUnit"];
+          'Range-Unit'?: parameters['rangeUnit'];
           /** Preference */
-          Prefer?: parameters["preferCount"];
+          Prefer?: parameters['preferCount'];
         };
       };
       responses: {
         /** OK */
         200: {
-          schema: definitions["projects"][];
+          schema: definitions['projects'][];
         };
         /** Partial Content */
         206: unknown;
@@ -248,15 +247,15 @@ export interface paths {
       parameters: {
         body: {
           /** projects */
-          projects?: definitions["projects"];
+          projects?: definitions['projects'];
         };
         query: {
           /** Filtering Columns */
-          select?: parameters["select"];
+          select?: parameters['select'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -267,19 +266,21 @@ export interface paths {
     delete: {
       parameters: {
         query: {
-          id?: parameters["rowFilter.projects.id"];
-          name?: parameters["rowFilter.projects.name"];
-          description?: parameters["rowFilter.projects.description"];
-          created_at?: parameters["rowFilter.projects.created_at"];
-          updated_at?: parameters["rowFilter.projects.updated_at"];
-          backlog?: parameters["rowFilter.projects.backlog"];
-          users?: parameters["rowFilter.projects.users"];
-          tags?: parameters["rowFilter.projects.tags"];
-          tutorials?: parameters["rowFilter.projects.tutorials"];
+          id?: parameters['rowFilter.projects.id'];
+          name?: parameters['rowFilter.projects.name'];
+          description?: parameters['rowFilter.projects.description'];
+          created_at?: parameters['rowFilter.projects.created_at'];
+          updated_at?: parameters['rowFilter.projects.updated_at'];
+          backlog?: parameters['rowFilter.projects.backlog'];
+          users?: parameters['rowFilter.projects.users'];
+          tags?: parameters['rowFilter.projects.tags'];
+          tutorials?: parameters['rowFilter.projects.tutorials'];
+          creator?: parameters['rowFilter.projects.creator'];
+          slug?: parameters['rowFilter.projects.slug'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -290,23 +291,25 @@ export interface paths {
     patch: {
       parameters: {
         query: {
-          id?: parameters["rowFilter.projects.id"];
-          name?: parameters["rowFilter.projects.name"];
-          description?: parameters["rowFilter.projects.description"];
-          created_at?: parameters["rowFilter.projects.created_at"];
-          updated_at?: parameters["rowFilter.projects.updated_at"];
-          backlog?: parameters["rowFilter.projects.backlog"];
-          users?: parameters["rowFilter.projects.users"];
-          tags?: parameters["rowFilter.projects.tags"];
-          tutorials?: parameters["rowFilter.projects.tutorials"];
+          id?: parameters['rowFilter.projects.id'];
+          name?: parameters['rowFilter.projects.name'];
+          description?: parameters['rowFilter.projects.description'];
+          created_at?: parameters['rowFilter.projects.created_at'];
+          updated_at?: parameters['rowFilter.projects.updated_at'];
+          backlog?: parameters['rowFilter.projects.backlog'];
+          users?: parameters['rowFilter.projects.users'];
+          tags?: parameters['rowFilter.projects.tags'];
+          tutorials?: parameters['rowFilter.projects.tutorials'];
+          creator?: parameters['rowFilter.projects.creator'];
+          slug?: parameters['rowFilter.projects.slug'];
         };
         body: {
           /** projects */
-          projects?: definitions["projects"];
+          projects?: definitions['projects'];
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferReturn"];
+          Prefer?: parameters['preferReturn'];
         };
       };
       responses: {
@@ -315,7 +318,7 @@ export interface paths {
       };
     };
   };
-  "/rpc/handle_new_user": {
+  '/rpc/handle_new_user': {
     post: {
       parameters: {
         body: {
@@ -323,7 +326,7 @@ export interface paths {
         };
         header: {
           /** Preference */
-          Prefer?: parameters["preferParams"];
+          Prefer?: parameters['preferParams'];
         };
       };
       responses: {
@@ -356,18 +359,17 @@ export interface definitions {
     updated_at?: string;
     /** Format: text */
     username?: string;
-    /** Format: text */
-    avatar_url?: string;
     /** Format: json */
     github_profile?: string;
-    /** Format: json */
-    projects?: string;
+    /** Format: ARRAY */
+    projects?: unknown[];
   };
   projects: {
     /**
      * Format: uuid
      * @description Note:
      * This is a Primary Key.<pk/>
+     * @default extensions.uuid_generate_v4()
      */
     id: string;
     /** Format: text */
@@ -379,13 +381,17 @@ export interface definitions {
     /** Format: timestamp with time zone */
     updated_at?: string;
     /** Format: json */
-    backlog?: string;
+    backlog?: { id: string; name: string }[];
     /** Format: json */
     users?: string;
     /** Format: json */
     tags?: string;
     /** Format: json */
     tutorials?: string;
+    /** Format: uuid */
+    creator?: string;
+    /** Format: text */
+    slug?: string;
   };
 }
 
@@ -394,17 +400,17 @@ export interface parameters {
    * @description Preference
    * @enum {string}
    */
-  preferParams: "params=single-object";
+  preferParams: 'params=single-object';
   /**
    * @description Preference
    * @enum {string}
    */
-  preferReturn: "return=representation" | "return=minimal" | "return=none";
+  preferReturn: 'return=representation' | 'return=minimal' | 'return=none';
   /**
    * @description Preference
    * @enum {string}
    */
-  preferCount: "count=none";
+  preferCount: 'count=none';
   /** @description Filtering Columns */
   select: string;
   /** @description On Conflict */
@@ -423,45 +429,47 @@ export interface parameters {
   /** @description Limiting and Pagination */
   limit: string;
   /** @description admin_list */
-  "body.admin_list": definitions["admin_list"];
+  'body.admin_list': definitions['admin_list'];
   /** Format: uuid */
-  "rowFilter.admin_list.id": string;
+  'rowFilter.admin_list.id': string;
   /** Format: boolean */
-  "rowFilter.admin_list.isadmin": string;
+  'rowFilter.admin_list.isadmin': string;
   /** @description profiles */
-  "body.profiles": definitions["profiles"];
+  'body.profiles': definitions['profiles'];
   /** Format: uuid */
-  "rowFilter.profiles.id": string;
+  'rowFilter.profiles.id': string;
   /** Format: timestamp with time zone */
-  "rowFilter.profiles.updated_at": string;
+  'rowFilter.profiles.updated_at': string;
   /** Format: text */
-  "rowFilter.profiles.username": string;
-  /** Format: text */
-  "rowFilter.profiles.avatar_url": string;
+  'rowFilter.profiles.username': string;
   /** Format: json */
-  "rowFilter.profiles.github_profile": string;
-  /** Format: json */
-  "rowFilter.profiles.projects": string;
+  'rowFilter.profiles.github_profile': string;
+  /** Format: ARRAY */
+  'rowFilter.profiles.projects': string;
   /** @description projects */
-  "body.projects": definitions["projects"];
+  'body.projects': definitions['projects'];
   /** Format: uuid */
-  "rowFilter.projects.id": string;
+  'rowFilter.projects.id': string;
   /** Format: text */
-  "rowFilter.projects.name": string;
+  'rowFilter.projects.name': string;
   /** Format: text */
-  "rowFilter.projects.description": string;
+  'rowFilter.projects.description': string;
   /** Format: timestamp with time zone */
-  "rowFilter.projects.created_at": string;
+  'rowFilter.projects.created_at': string;
   /** Format: timestamp with time zone */
-  "rowFilter.projects.updated_at": string;
+  'rowFilter.projects.updated_at': string;
   /** Format: json */
-  "rowFilter.projects.backlog": string;
+  'rowFilter.projects.backlog': string;
   /** Format: json */
-  "rowFilter.projects.users": string;
+  'rowFilter.projects.users': string;
   /** Format: json */
-  "rowFilter.projects.tags": string;
+  'rowFilter.projects.tags': string;
   /** Format: json */
-  "rowFilter.projects.tutorials": string;
+  'rowFilter.projects.tutorials': string;
+  /** Format: uuid */
+  'rowFilter.projects.creator': string;
+  /** Format: text */
+  'rowFilter.projects.slug': string;
 }
 
 export interface operations {}

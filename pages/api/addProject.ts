@@ -6,6 +6,7 @@ import { User, createClient } from '@supabase/supabase-js';
 import Cors from 'cors';
 import initMiddleware from 'utils/initMiddleware';
 import rateLimit from 'express-rate-limit';
+import slugify from 'slugify';
 
 const cors = initMiddleware(
   Cors({
@@ -48,22 +49,32 @@ const sendProject = async (
 
     if (name && description && list) {
       console.log(name, description, list);
-      const { data, error } = await supabase.from('projects').insert([
-        {
-          name: name,
-          description: description,
-          backlog: list,
-          creator: request.body.user.id,
-          created_at: new Date(),
-        },
-      ]);
+      const { data: projectData, error: projectError } = await supabase
+        .from('projects')
+        .insert([
+          {
+            name: name,
+            description: description,
+            backlog: list,
+            creator: request.body.user.id,
+            created_at: new Date(),
+            slug: slugify(name, { lower: true }),
+          },
+        ]);
 
-      console.log(data);
+      // const { data: userData, error: userError } = await supabase
+      //   .from('profiles')
+      //   .where({ id: request.body.user.id })
+      //   .update({
+      //     projects: [...request.body.user.projects, projectData[0].id],
+      //   });
 
-      if (data && !error) {
-        response.status(200).json({ data: 'ok' });
-      } else if (error) {
-        response.status(500).json({ error: error.message });
+      console.log(projectData);
+
+      if (projectData && !projectError) {
+        response.status(200).json('Your project has been added 🥳');
+      } else if (projectError) {
+        response.status(500).json(projectError.message);
       }
     }
   }

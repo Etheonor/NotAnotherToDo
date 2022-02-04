@@ -80,3 +80,17 @@ create table admin_list (
 );
 
 alter table admin_list enable row level security;
+
+create function push_projectid_to_profile()
+returns trigger as $$
+begin
+  update profiles
+  set projects = array_append(projects, new.id::text)
+  where id = new.creator;
+  return new;
+  end;
+$$ language plpgsql security definer;
+
+create trigger on_project_created
+  after insert on projects
+  for each row execute procedure push_projectid_to_profile();

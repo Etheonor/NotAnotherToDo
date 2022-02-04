@@ -14,7 +14,6 @@ const NewProject = ({
   };
 }): JSX.Element => {
   const router = useRouter();
-
   useEffect(() => {
     // If a user is not logged in, return to the homepage
     if (!user) {

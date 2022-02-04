@@ -1,6 +1,8 @@
+import axios, { AxiosError } from 'axios';
+
 import MarkdownEditor from './MarkdownEditor';
 import TaskList from 'components/TaskList';
-import axios from 'axios';
+import { toast } from 'react-toastify';
 import { useAuth } from 'utils/AuthContext';
 import { useState } from 'react';
 
@@ -16,21 +18,30 @@ const NewProjectForm = (): JSX.Element => {
   const [list, setList] = useState<ItemType[]>([]);
   const { user } = useAuth();
 
-  const handleProject = (): void => {
+  const handleProject = async (): Promise<void> => {
     const project = {
       name: projectName,
       description: projectDescription,
       list: list,
     };
 
-    void axios
-      .post('/api/addProject', {
+    try {
+      const addedProject = await axios.post('/api/addProject', {
         project,
         user,
-      })
-      .then((res) => {
-        console.log(res);
       });
+
+      toast.success(addedProject.data as string);
+    } catch (error) {
+      const err = error as AxiosError;
+
+      if (
+        err.response?.data ===
+        'duplicate key value violates unique constraint "projects_name_key"'
+      ) {
+        toast.error('Project name already exists');
+      }
+    }
   };
 
   return (

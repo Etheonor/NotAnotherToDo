@@ -16,7 +16,7 @@ You can setup basic rules for your headers/text here
     @apply mt-2 mb-3 text-2xl font-title;
   }
   p {
-    @apply mb-5 text-sm leading-loose text-left font-body text-base-200;
+    @apply mb-5 text-sm leading-loose text-left font-body;
   }
   ul {
     @apply mb-3 ml-10 text-sm leading-loose list-disc font-body text-base-200;
