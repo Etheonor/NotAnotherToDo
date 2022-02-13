@@ -21,9 +21,17 @@ const Nav = ({ user, signOut }: NavProperties): JSX.Element => {
   const NavMenu = (
     <>
       {user && (
-        <Link href="/dashboard">
-          <a className="nav-btn">Dashboard</a>
-        </Link>
+        <>
+          <Link href="/dashboard">
+            <a className="nav-btn">Dashboard</a>
+          </Link>
+          <Link href="/new-project">
+            <a className="nav-btn">Create a project</a>
+          </Link>
+          <Link href="/projects">
+            <a className="nav-btn">See Projects</a>
+          </Link>
+        </>
       )}
 
       <Link href="https://github.com/Etheonor">
