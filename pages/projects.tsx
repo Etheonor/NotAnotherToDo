@@ -5,17 +5,6 @@ import { definitions } from '../types/database/index';
 import { supabase } from 'utils/supabaseClient';
 import { useEffect } from 'react';
 
-const getPagination = (
-  page: number,
-  size: number
-): { from: number; to: number } => {
-  const limit = size ? +size : 3;
-  const from = page ? page * limit : 0;
-  const to = page ? from + size : size;
-
-  return { from, to };
-};
-
 const ProjectsPage = ({
   data,
   count,
@@ -55,7 +44,7 @@ export async function getServerSideProps() {
     .from('projects')
     .select('*', { count: 'exact' })
     .order('created_at', { ascending: true })
-    .range(1, 1);
+    .range(0, 1);
 
   return {
     props: {

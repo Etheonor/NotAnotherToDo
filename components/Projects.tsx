@@ -6,23 +6,22 @@ const Projects = (props: {
   data: definitions['projects'][];
   count: number;
 }): JSX.Element => {
-  const [count, setCount] = useState(props.count);
+  const [cursor, setCursor] = useState(props.data.length);
+  const [totalProjects, setTotalProjects] = useState(props.count);
   const [currentProjects, setCurrentProjects] = useState(props.data);
 
   console.log(currentProjects);
 
-  const getProjects = async (count: number) => {
-    const { newProjects, newCount } = await supabase
+  const getNextProjects = async (): Promise<void> => {
+    await supabase
       .from<definitions['projects']>('projects')
       .select('*', { count: 'exact' })
       .order('created_at', { ascending: true })
-      .range(count, count);
-
-    console.log(newProjects);
-    console.log(newCount);
-
-    //setCount(newCount as number);
-    //setCurrentProjects([...currentProjects, ...newProjects]);
+      .range(cursor, cursor)
+      .then((result) => {
+        setCurrentProjects([...currentProjects, ...(result.data as [])]);
+        setCursor(cursor + 1);
+      });
   };
   return (
     <>
@@ -38,7 +37,9 @@ const Projects = (props: {
             );
           })}
       </pre>
-      <button onClick={() => getProjects(count)}>Load more</button>
+      {totalProjects > cursor ? (
+        <button onClick={async () => getNextProjects()}>Load more</button>
+      ) : null}
     </>
   );
 };
